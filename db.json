@@ -1,0 +1,45 @@
+{
+    "trips":
+    [
+        {
+            "id": 1,
+            "user": "mike",
+            "title": "Alaska 2022",
+            "image": "/images/trip-alaska.jpg",
+            "description": "lorem ipsum",
+            "date": "2022-08-15",
+            "liked": true
+        },
+        {
+            "id": 2,
+            "user": "mike",
+            "title": "Montreal 2022",
+            "image": "/images/trip-montreal.jpg",
+            "description": "lorem ipsum ipsum",
+            "date": "2022-09-01",
+            "liked": false
+        },
+        {
+            "id": 3,
+            "user": "katie",
+            "title": "Tucson 2022",
+            "image": "/images/trip-tucson.jpg",
+            "description": "lorem ipsum ipsum",
+            "date": "2022-12-24",
+            "liked": true
+        }
+    ],
+    "users":
+    [
+        {
+            "id": 1,
+            "username": "mike",
+            "avatar:": "/images/avatar-mike.jpg"
+        },
+        {
+            "id": 2,
+            "username": "katie",
+            "avatar:": "/images/avatar-mike.jpg"
+        }
+    ]
+}
