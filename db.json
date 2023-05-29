@@ -5,7 +5,7 @@
             "id": 1,
             "author": 1,
             "title": "Alaska 2022",
-            "image": "/images/trip-alaska.jpg",
+            "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-alaska.jpg",
             "description": "lorem ipsum",
             "date": "2022-08-15",
             "liked": true
@@ -14,7 +14,7 @@
             "id": 2,
             "author": 1,
             "title": "Montreal 2022",
-            "image": "/images/trip-montreal.jpg",
+            "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-montreal.jpg",
             "description": "lorem ipsum ipsum",
             "date": "2022-09-01",
             "liked": false
@@ -22,8 +22,8 @@
         {
             "id": 3,
             "author": 2,
-            "title": "Tucson 2022",
-            "image": "/images/trip-tucson.jpg",
+            "title": "Arizona 2022",
+            "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-arizona.jpg",
             "description": "lorem ipsum ipsum",
             "date": "2022-12-24",
             "liked": true
@@ -34,12 +34,12 @@
         {
             "id": 1,
             "name": "Mike",
-            "avatar:": "/images/avatar-mike.jpg"
+            "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
         },
         {
             "id": 2,
             "name": "Katie",
-            "avatar:": "/images/avatar-mike.jpg"
+            "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
         }
     ]
 }

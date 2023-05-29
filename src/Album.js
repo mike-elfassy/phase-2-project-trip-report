@@ -16,6 +16,8 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import {useEffect, useState} from 'react';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -29,12 +31,27 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const API_URL = "http://localhost:3000"
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Album() {
+
+  const [trips, setTrips] = useState([]) 
+
+  useEffect(() => {
+    fetch(API_URL + "/trips")
+      .then(r => r.json())
+      .then(data => setTrips(data))
+  }, [])
+
+  function addTrip(newTrip) {
+    const updatedTrips = [...trips, newTrip]
+    setTrips(updatedTrips);
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -82,8 +99,8 @@ export default function Album() {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {trips.map((trip) => (
+              <Grid item key={trip.id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -93,15 +110,14 @@ export default function Album() {
                       // 16:9
                       pt: '56.25%',
                     }}
-                    image="https://source.unsplash.com/random?wallpapers"
+                    image={trip.image}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      {trip.title}
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
+                      {trip.description}
                     </Typography>
                   </CardContent>
                   <CardActions>
