@@ -8,7 +8,8 @@ import AppBar from '@mui/material/AppBar';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
+import Box from '@mui/material/Box';
+import StickyFooter from './StickyFooter';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/trips/new" element={<NewTrip />} />
           <Route path="/*" element={<h1>404 Not Found</h1>} />
       </Routes>
+      <StickyFooter/>
     </div>
   );
 }

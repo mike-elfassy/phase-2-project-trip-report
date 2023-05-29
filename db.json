@@ -1,45 +1,57 @@
 {
-    "trips":
-    [
-        {
-            "id": 1,
-            "author": 1,
-            "title": "Alaska 2022",
-            "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-alaska.jpg",
-            "description": "lorem ipsum",
-            "date": "2022-08-15",
-            "liked": true
-        },
-        {
-            "id": 2,
-            "author": 1,
-            "title": "Montreal 2022",
-            "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-montreal.jpg",
-            "description": "lorem ipsum ipsum",
-            "date": "2022-09-01",
-            "liked": false
-        },
-        {
-            "id": 3,
-            "author": 2,
-            "title": "Arizona 2022",
-            "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-arizona.jpg",
-            "description": "lorem ipsum ipsum",
-            "date": "2022-12-24",
-            "liked": true
-        }
-    ],
-    "authors":
-    [
-        {
-            "id": 1,
-            "name": "Mike",
-            "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
-        },
-        {
-            "id": 2,
-            "name": "Katie",
-            "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
-        }
-    ]
+  "trips": [
+    {
+      "id": 1,
+      "author": 1,
+      "title": "Alaska 2022",
+      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-alaska.jpg",
+      "description": "lorem ipsum",
+      "date": "2022-08-15",
+      "liked": true
+    },
+    {
+      "id": 2,
+      "author": 1,
+      "title": "Montreal 2022",
+      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-montreal.jpg",
+      "description": "lorem ipsum ipsum",
+      "date": "2022-09-01",
+      "liked": false
+    },
+    {
+      "id": 3,
+      "author": 2,
+      "title": "Arizona 2022",
+      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-arizona.jpg",
+      "description": "lorem ipsum ipsum",
+      "date": "2022-12-24",
+      "liked": true
+    },
+    {
+      "title": "New Title",
+      "description": "asdf",
+      "image": "asdf",
+      "liked": false,
+      "id": 4
+    },
+    {
+      "title": "asdf",
+      "description": "asdf",
+      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-default.jpg",
+      "liked": false,
+      "id": 5
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Mike",
+      "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Katie",
+      "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
+    }
+  ]
 }

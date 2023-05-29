@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link as RouterLink } from "react-router-dom";
 
 import {useEffect, useState} from 'react';
 
@@ -83,7 +84,7 @@ export default function Album() {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Create a Trip Report</Button>
+              <Button variant="contained" component={RouterLink} to="/trips/new">Create a Trip Report</Button>
               {/* <Button variant="outlined">Secondary action</Button> */}
             </Stack>
           </Container>
@@ -122,22 +123,6 @@ export default function Album() {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Trip Report
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Michael Elfassy's Phase-2 Project for The Flatiron School
-        </Typography>
-        {/* <Copyright /> */}
-      </Box>
-      {/* End footer */}
     </ThemeProvider>
   );
 }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,36 +13,60 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import { Link as RouterLink } from "react-router-dom";
 
 // TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
+const API_URL = "http://localhost:3000"
+
 export default function NewTrip() {
-  const handleSubmit = (event) => {
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    image: "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-default.jpg",
+    liked: false
+  })
+
+  function handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+      // persist todo on server
+      fetch(API_URL + "/trips", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+      })
+          .then(r => r.json())
+          .then(data => console.log(data))
+      // then use onAddTodo to add todo to state
+  }
+  
+  function handleChange(event) {
+    const key = event.target.id
+    // const value = event.target.type === "checkbox" ? event.target.checked : event.target.value
+    
+    setFormData({ 
+      ...formData, 
+      [key]: event.target.value
+    })
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link
+          underline="hover"
+          color="inherit"
+          component={RouterLink}
+          to="/"
+        >
+          Trips
+        </Link>
+        <Typography color="text.primary">New Trip</Typography>
+    </Breadcrumbs>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -52,60 +77,48 @@ export default function NewTrip() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            New Trip
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  id="title"
+                  label="Trip Title"
+                  name="title"
+                  autoComplete="title"
+                  value={formData.title}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  multiline
+                  rows={4}
+                  name="description"
+                  label="Description"
+                  type="description"
+                  id="description"
+                  autoComplete="description"
+                  value={formData.description}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  id="image"
+                  label="Image URL"
+                  name="image"
+                  autoComplete="image"
+                  value={formData.image}
+                  onChange={handleChange}
                 />
               </Grid>
             </Grid>
@@ -115,18 +128,10 @@ export default function NewTrip() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              Create Trip
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
