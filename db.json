@@ -3,7 +3,7 @@
     [
         {
             "id": 1,
-            "user": "mike",
+            "author": 1,
             "title": "Alaska 2022",
             "image": "/images/trip-alaska.jpg",
             "description": "lorem ipsum",
@@ -12,7 +12,7 @@
         },
         {
             "id": 2,
-            "user": "mike",
+            "author": 1,
             "title": "Montreal 2022",
             "image": "/images/trip-montreal.jpg",
             "description": "lorem ipsum ipsum",
@@ -21,7 +21,7 @@
         },
         {
             "id": 3,
-            "user": "katie",
+            "author": 2,
             "title": "Tucson 2022",
             "image": "/images/trip-tucson.jpg",
             "description": "lorem ipsum ipsum",
@@ -29,16 +29,16 @@
             "liked": true
         }
     ],
-    "users":
+    "authors":
     [
         {
             "id": 1,
-            "username": "mike",
+            "name": "Mike",
             "avatar:": "/images/avatar-mike.jpg"
         },
         {
             "id": 2,
-            "username": "katie",
+            "name": "Katie",
             "avatar:": "/images/avatar-mike.jpg"
         }
     ]
