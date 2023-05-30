@@ -1,21 +1,17 @@
 import * as React from 'react';
 import { useState } from 'react';
-
-import Avatar from '@mui/material/Avatar';
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+// Material UI Components
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
@@ -29,6 +25,8 @@ export default function NewTrip() {
     image: "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-default.jpg",
     liked: false
   })
+
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -45,7 +43,7 @@ export default function NewTrip() {
       })
   }
 
-  function handleChange(event) {
+  function handleInputChange(event) {
     const key = event.target.id
     // const value = event.target.type === "checkbox" ? event.target.checked : event.target.value
 
@@ -54,8 +52,6 @@ export default function NewTrip() {
       [key]: event.target.value
     })
   }
-
-  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -96,7 +92,7 @@ export default function NewTrip() {
                   name="title"
                   autoComplete="title"
                   value={formData.title}
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -111,7 +107,7 @@ export default function NewTrip() {
                   id="description"
                   autoComplete="description"
                   value={formData.description}
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -123,7 +119,7 @@ export default function NewTrip() {
                   name="image"
                   autoComplete="image"
                   value={formData.image}
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                 />
               </Grid>
             </Grid>

@@ -1,26 +1,19 @@
 import React from 'react'
-// import logo from './logo.svg';
-// import './App.css';
+import { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
+// React Components
 import Album from './Album'
 import NewTrip from './NewTrip'
+import TripDetail from './TripDetail';
+import EditTrip from './EditTrip';
+import StickyFooter from './StickyFooter';
+// Material UI Components
 import AppBar from '@mui/material/AppBar';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import StickyFooter from './StickyFooter';
-import TripDetail from './TripDetail';
-import EditTrip from './EditTrip';
-import {useState} from 'react';
 
-function App() {
-  const [navCrumbs, setNavCrumbs] = useState({
-    to: null,
-    text: null,
-    primary: true
-  });
-
+export default function App() {
   return (
     <div className="App">
       <AppBar position="relative">
@@ -32,15 +25,13 @@ function App() {
         </Toolbar>
       </AppBar>
       <Routes>
-          <Route path="/" element={<Album />} />
-          <Route path="/trips/new" element={<NewTrip />} />
-          <Route path="/trips/:id/edit" element={<EditTrip />} />
-          <Route path="/trips/:id" element={<TripDetail /> }/>
-          <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route path="/" element={<Album />} />
+        <Route path="/trips/new" element={<NewTrip />} />
+        <Route path="/trips/:id" element={<TripDetail />} />
+        <Route path="/trips/:id/edit" element={<EditTrip />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
-      <StickyFooter/>
+      <StickyFooter />
     </div>
   );
 }
-
-export default App;

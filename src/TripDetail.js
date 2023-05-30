@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom"
+import { useParams, Link as RouterLink } from "react-router-dom"
+// React Components
+import TripDetailCard from './TripDetailCard';
+// Material UI Components
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import { Link as RouterLink } from "react-router-dom";
-import TripDetailCard from './TripDetailCard';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
@@ -17,8 +18,8 @@ const API_URL = "http://localhost:3000"
 
 export default function TripDetail() {
 
-    const [trip, setTrip] = useState({});
     const { id } = useParams()
+    const [trip, setTrip] = useState({});
 
     useEffect(() => {
         fetch(API_URL + `/trips/${id}`)
