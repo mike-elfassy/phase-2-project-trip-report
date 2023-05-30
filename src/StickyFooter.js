@@ -27,7 +27,7 @@ export default function StickyFooter() {
           }}
         >
           <Container maxWidth="sm">
-            <Typography variant="body1">
+            <Typography variant="body1" sx={{ textAlign: 'center' }}>
               Michael Elfassy's Phase-2 Project for The Flatiron School
             </Typography>
             {/* <Copyright /> */}

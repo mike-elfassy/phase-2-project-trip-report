@@ -1,43 +1,54 @@
 {
-  "trips": [
-    {
-      "id": 1,
-      "author": 1,
-      "title": "Alaska 2022",
-      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-alaska.jpg",
-      "description": "lorem ipsum",
-      "date": "2022-08-15",
-      "liked": true
-    },
-    {
-      "id": 2,
-      "author": 1,
-      "title": "Montreal 2022",
-      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-montreal.jpg",
-      "description": "lorem ipsum ipsum",
-      "date": "2022-09-01",
-      "liked": false
-    },
-    {
-      "id": 3,
-      "author": 2,
-      "title": "Arizona 2022",
-      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-arizona.jpg",
-      "description": "lorem ipsum ipsum",
-      "date": "2022-12-24",
-      "liked": true
-    }
+  "trips":
+  [
+      {
+          "id": 1,
+          "author": 1,
+          "title": "Alaska 2022",
+          "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-alaska.jpg",
+          "description": "An unforgettable trip up the Dalton Highway. We drove over Atigun pass and through the arctic tundra with many stops along the way.",
+          "date": "2022-08-15",
+          "liked": true
+      },
+      {
+          "id": 2,
+          "author": 1,
+          "title": "Montreal 2022",
+          "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-montreal.jpg",
+          "description": "Celebrated Steven's wedding and visted my sister & brother-in-law.",
+          "date": "2022-09-01",
+          "liked": false
+      },
+      {
+          "id": 3,
+          "author": 2,
+          "title": "Arizona 2021",
+          "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-arizona.jpg",
+          "description": "Winter in the desert, Christmas in Sedona with old friends, and Anna's first time visiting Grandma in Tucson.",
+          "date": "2021-12-24",
+          "liked": true
+      },
+      {
+          "id": 4,
+          "author": 2,
+          "title": "Hello World",
+          "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-default.jpg",
+          "description": "Share your adventures!",
+          "date": "2023-05-29",
+          "liked": false
+      }
   ],
-  "authors": [
-    {
-      "id": 1,
-      "name": "Mike",
-      "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Katie",
-      "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
-    }
+  "authors":
+  [
+      {
+          "id": 1,
+          "name": "Mike",
+          "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
+      },
+      {
+          "id": 2,
+          "name": "Katie",
+          "avatar:": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/avatar-mike.jpg"
+      }
   ]
 }
