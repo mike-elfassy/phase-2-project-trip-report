@@ -32,25 +32,25 @@ export default function NewTrip() {
 
   function handleSubmit(event) {
     event.preventDefault();
-      fetch(API_URL + "/trips", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify(formData)
+    fetch(API_URL + "/trips", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(r => r.json())
+      .then(data => {
+        navigate(`/trips/${data.id}`)
       })
-          .then(r => r.json())
-          .then(data => {
-            navigate(`/trips/${data.id}`)
-          })
   }
-  
+
   function handleChange(event) {
     const key = event.target.id
     // const value = event.target.type === "checkbox" ? event.target.checked : event.target.value
-    
-    setFormData({ 
-      ...formData, 
+
+    setFormData({
+      ...formData,
       [key]: event.target.value
     })
   }
@@ -59,17 +59,19 @@ export default function NewTrip() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link
-          underline="hover"
-          color="inherit"
-          component={RouterLink}
-          to="/"
-        >
-          Trips
-        </Link>
-        <Typography color="text.primary">New Trip</Typography>
-    </Breadcrumbs>
+      <Box sx={{ margin: "8px" }}>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link
+            underline="hover"
+            color="inherit"
+            component={RouterLink}
+            to="/"
+          >
+            Trips
+          </Link>
+          <Typography color="text.primary">New Trip</Typography>
+        </Breadcrumbs>
+      </Box>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

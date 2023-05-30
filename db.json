@@ -33,6 +33,13 @@
       "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-montreal.jpg",
       "liked": false,
       "id": 4
+    },
+    {
+      "title": "Hello",
+      "description": "World",
+      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-default.jpg",
+      "liked": true,
+      "id": 5
     }
   ],
   "authors": [

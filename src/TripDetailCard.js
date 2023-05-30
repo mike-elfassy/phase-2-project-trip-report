@@ -39,47 +39,47 @@ export default function TripDetailCard() {
   //   setExpanded(!expanded);
   // };
 
-const [trip, setTrip] = useState({});
-const { id } = useParams()
+  const [trip, setTrip] = useState({});
+  const { id } = useParams()
 
-useEffect(() => {
+  useEffect(() => {
     fetch(API_URL + `/trips/${id}`)
-        .then(r => r.json())
-        .then(data => setTrip(data))
-}, [])
+      .then(r => r.json())
+      .then(data => setTrip(data))
+  }, [])
 
-function handleLikeClick() {
+  function handleLikeClick() {
     fetch(API_URL + "/trips/" + id, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({liked: !trip.liked})
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ liked: !trip.liked })
     })
-        .then(r => r.json())
-        .then(data => setTrip(data))
-}
+      .then(r => r.json())
+      .then(data => setTrip(data))
+  }
 
-const [anchorEl, setAnchorEl] = React.useState(null);
-const open = Boolean(anchorEl);
-const handleSettingsClick = (event) => {
-  setAnchorEl(event.currentTarget);
-};
-const handleSettingsClose = () => {
-  setAnchorEl(null);
-};
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleSettingsClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleSettingsClose = () => {
+    setAnchorEl(null);
+  };
 
-function handleDelete() {
-  fetch(`${API_URL}/trips/${id}`, {
+  function handleDelete() {
+    fetch(`${API_URL}/trips/${id}`, {
       method: "DELETE",
-  })
+    })
       .then(navigate('/'))
-}
+  }
 
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
   return (
-    <Card sx={{ }} >
+    <Card sx={{}} >
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -101,23 +101,23 @@ const navigate = useNavigate()
         subheader={trip.date}
       />
       <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleSettingsClose}
-            MenuListProps={{
-              'aria-labelledby': 'basic-button',
-            }}
-          >
-            <MenuItem onClick={() => {navigate('./edit')}}>Edit</MenuItem>
-            <MenuItem onClick={handleDelete}>Delete</MenuItem>
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleSettingsClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={() => { navigate('./edit') }}>Edit</MenuItem>
+        <MenuItem onClick={handleDelete}>Delete</MenuItem>
       </Menu>
       <CardMedia
         component="img"
         height="194"
         image={trip.image}
         alt=""
-        sx={{height: "100%"}}
+        sx={{ height: "100%" }}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

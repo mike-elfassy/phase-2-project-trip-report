@@ -12,8 +12,15 @@ import Box from '@mui/material/Box';
 import StickyFooter from './StickyFooter';
 import TripDetail from './TripDetail';
 import EditTrip from './EditTrip';
+import {useState} from 'react';
 
 function App() {
+  const [navCrumbs, setNavCrumbs] = useState({
+    to: null,
+    text: null,
+    primary: true
+  });
+
   return (
     <div className="App">
       <AppBar position="relative">

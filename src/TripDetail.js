@@ -26,24 +26,26 @@ export default function TripDetail() {
             .then(data => setTrip(data))
     }, [])
 
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link
-          underline="hover"
-          color="inherit"
-          component={RouterLink}
-          to="/"
-        >
-          Trips
-        </Link>
-        <Typography color="text.primary">{trip.title}</Typography>
-    </Breadcrumbs>
-    <Container maxWidth="sm" sx={{padding: "16px"}}>
-        <Box sx={{ }}>
-            <TripDetailCard></TripDetailCard>
-        </Box>
-      </Container>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={defaultTheme}>
+            <Box sx={{ margin: "8px" }}>
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link
+                        underline="hover"
+                        color="inherit"
+                        component={RouterLink}
+                        to="/"
+                    >
+                        Trips
+                    </Link>
+                    <Typography color="text.primary">{trip.title}</Typography>
+                </Breadcrumbs>
+            </Box>
+            <Container maxWidth="sm" sx={{ padding: "16px" }}>
+                <Box sx={{}}>
+                    <TripDetailCard></TripDetailCard>
+                </Box>
+            </Container>
+        </ThemeProvider>
+    );
 }

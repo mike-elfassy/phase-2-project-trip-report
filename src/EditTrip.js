@@ -130,25 +130,27 @@ export default function EditTrip() {
 
     return (
         <ThemeProvider theme={defaultTheme}>
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link
-                    underline="hover"
-                    color="inherit"
-                    component={RouterLink}
-                    to="/"
-                >
-                    Trips
-                </Link>
-                <Link
-                    underline="hover"
-                    color="inherit"
-                    component={RouterLink}
-                    to={`/trips/${id}`}
-                >
-                    {trip.title}
-                </Link>
-                <Typography color="text.primary">Edit</Typography>
-            </Breadcrumbs>
+            <Box sx={{ margin: "8px" }}>
+                <Breadcrumbs aria-label="breadcrumb">
+                    <Link
+                        underline="hover"
+                        color="inherit"
+                        component={RouterLink}
+                        to="/"
+                    >
+                        Trips
+                    </Link>
+                    <Link
+                        underline="hover"
+                        color="inherit"
+                        component={RouterLink}
+                        to={`/trips/${id}`}
+                    >
+                        {trip.title}
+                    </Link>
+                    <Typography color="text.primary">Edit</Typography>
+                </Breadcrumbs>
+            </Box>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
