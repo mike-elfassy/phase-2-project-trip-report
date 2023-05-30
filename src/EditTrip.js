@@ -211,7 +211,7 @@ export default function EditTrip() {
                                 variant="outlined"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Discard Changes
+                                Reset Changes
                             </Button>
                             <Button
                                 type="submit"
