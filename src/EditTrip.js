@@ -19,44 +19,58 @@ const defaultTheme = createTheme();
 
 const API_URL = "http://localhost:3000"
 
+const initialState = {
+    isLoading: true,
+    error: null,
+    trip: null,
+    formData: {
+        title: '',
+        description: '',
+        image: '',
+        liked: ''
+    },
+};
+
 function reducer(state, action) {
-    if (action.type === "startFetch") {
-        return { trip: null, formData: null, status: "pending" }
-    } else if (action.type === "resolvedFetch") {
-        return {
-            trip: action.payload,
-            formData: {
-                title: action.payload.title,
-                description: action.payload.description,
-                image: action.payload.image,
-                liked: action.payload.liked
-            },
-            status: "fetchResolved"
-        }
-    } else if (action.type === "updateForm") {
-        return {
-            trip: state.trip,
-            formData: {
-                title: action.payload.title,
-                description: action.payload.description,
-                image: action.payload.image,
-                liked: action.payload.liked
-            },
-            status: "fetchResolved"
-        }
-    } else if (action.type === "discardChanges") {
-        return {
-            trip: state.trip,
-            formData: {
-                title: state.trip.title,
-                description: state.trip.description,
-                image: state.trip.image,
-                liked: state.trip.liked
-            },
-            status: "fetchResolved"
-        }
+    switch (action.type) {
+        case 'FETCH_SUCCESS':
+            return {
+                ...state,
+                isLoading: false,
+                trip: action.payload,
+                formData: {
+                    title: action.payload.title,
+                    description: action.payload.description,
+                    image: action.payload.image,
+                    liked: action.payload.liked
+                }
+            };
+        case 'FETCH_ERROR':
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload,
+            };
+        case 'UPDATE_FORM_DATA':
+            return {
+                ...state,
+                formData: {
+                    ...action.payload
+                }
+            };
+        case 'RESET_FORM_DATA':
+            return {
+                ...state,
+                formData: {
+                    title: state.trip.title,
+                    description: state.trip.description,
+                    image: state.trip.image,
+                    liked: state.trip.liked
+                }
+            };
+        default:
+            throw new Error('Unknown action type');
     }
-    return state
 }
 
 // -------------
@@ -65,20 +79,18 @@ function reducer(state, action) {
 export default function EditTrip() {
 
     const navigate = useNavigate();
-    const [state, dispatch] = useReducer(reducer, {
-        trip: null,
-        form: null,
-        status: "idle"
-    })
+    const [state, dispatch] = useReducer(reducer, initialState)
     const { trip, formData, status } = state
     const { id } = useParams()
 
     useEffect(() => {
-        dispatch({ type: "startFetch" })
         fetch(`${API_URL}/trips/${id}`)
             .then(r => r.json())
             .then(data => {
-                dispatch({ type: "resolvedFetch", payload: data })
+                dispatch({ type: "FETCH_SUCCESS", payload: data })
+            })
+            .catch((error) => {
+                dispatch({ type: 'FETCH_ERROR', payload: error.message });
             })
     }, [])
 
@@ -95,21 +107,25 @@ export default function EditTrip() {
             .then(data => {
                 navigate(`/trips/${data.id}`)
             })
+            .catch((error) => {
+                alert(error)
+            })
     }
 
     function handleDiscard(event) {
         event.preventDefault();
-        dispatch({ type: "discardChanges" })
+        dispatch({ type: "RESET_FORM_DATA" })
     }
 
-    function handleChange(event) {
-        const key = event.target.id
+    function handleInputChange(event) {
+        // const key = event.target.id
+        const { name, value } = event.target
 
         dispatch({
-            type: "updateForm",
+            type: "UPDATE_FORM_DATA",
             payload: {
                 ...formData,
-                [key]: event.target.value
+                [name]: value
             }
         })
     }
@@ -118,8 +134,12 @@ export default function EditTrip() {
     //     JSX 
     // -----------
 
-    if (status !== "fetchResolved") {
-        return <p>Loading...</p>;
+    if (state.isLoading) {
+        return <div>Loading...</div>
+    }
+
+    if (state.error) {
+        return <div>Error: {state.error}</div>
     }
 
     return (
@@ -164,12 +184,12 @@ export default function EditTrip() {
                                 <TextField
                                     required
                                     fullWidth
-                                    id="title"
+                                    // id="title"
                                     label="Trip Title"
                                     name="title"
                                     autoComplete="title"
                                     value={formData.title}
-                                    onChange={handleChange}
+                                    onChange={handleInputChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -181,22 +201,22 @@ export default function EditTrip() {
                                     name="description"
                                     label="Description"
                                     type="description"
-                                    id="description"
+                                    // id="description"
                                     autoComplete="description"
                                     value={formData.description}
-                                    onChange={handleChange}
+                                    onChange={handleInputChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     required
                                     fullWidth
-                                    id="image"
+                                    // id="image"
                                     label="Image URL"
                                     name="image"
                                     autoComplete="image"
                                     value={formData.image}
-                                    onChange={handleChange}
+                                    onChange={handleInputChange}
                                 />
                             </Grid>
                         </Grid>

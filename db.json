@@ -26,13 +26,6 @@
       "description": "lorem ipsum ipsum",
       "date": "2022-12-24",
       "liked": true
-    },
-    {
-      "title": "Hello",
-      "description": "World",
-      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-default.jpg",
-      "liked": true,
-      "id": 5
     }
   ],
   "authors": [
