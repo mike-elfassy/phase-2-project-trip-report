@@ -26,6 +26,13 @@
       "description": "lorem ipsum ipsum",
       "date": "2022-12-24",
       "liked": true
+    },
+    {
+      "title": "Montreal 20244",
+      "description": "lorem ipsum ipsum",
+      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-montreal.jpg",
+      "liked": false,
+      "id": 4
     }
   ],
   "authors": [

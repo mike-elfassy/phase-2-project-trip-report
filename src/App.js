@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import StickyFooter from './StickyFooter';
 import TripDetail from './TripDetail';
+import EditTrip from './EditTrip';
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
       <Routes>
           <Route path="/" element={<Album />} />
           <Route path="/trips/new" element={<NewTrip />} />
-          <Route path="/trips/:id" element={<TripDetail />} />
-          <Route path="/*" element={<h1>404 Not Found</h1>} />
+          <Route path="/trips/:id/edit" element={<EditTrip />} />
+          <Route path="/trips/:id" element={<TripDetail /> }/>
+          <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
       <StickyFooter/>
     </div>

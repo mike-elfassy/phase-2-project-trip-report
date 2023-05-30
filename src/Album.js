@@ -114,8 +114,8 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" component={RouterLink} to={'/trips/' + trip.id}>View</Button>
-                    <Button size="small">Edit</Button>
+                    <Button size="small" component={RouterLink} to={`/trips/${trip.id}`}>View</Button>
+                    <Button size="small" component={RouterLink} to={`/trips/${trip.id}/edit`}>Edit</Button>
                   </CardActions>
                 </Card>
               </Grid>
