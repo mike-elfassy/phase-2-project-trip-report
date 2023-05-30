@@ -12,26 +12,40 @@ import AppBar from '@mui/material/AppBar';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
 
 export default function App() {
   return (
     <div className="App">
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Trip Report
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Routes>
-        <Route path="/" element={<Album />} />
-        <Route path="/trips/new" element={<NewTrip />} />
-        <Route path="/trips/:id" element={<TripDetail />} />
-        <Route path="/trips/:id/edit" element={<EditTrip />} />
-        <Route path="*" element={<h1>404 Not Found</h1>} />
-      </Routes>
-      <StickyFooter />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+        }}
+      >
+        <CssBaseline />
+        <Container component="main" sx={{ mt: 0, mb: 3 }} style={{ padding: 0 }}>
+          <AppBar position="relative">
+            <Toolbar>
+              <CameraIcon sx={{ mr: 2 }} />
+              <Typography variant="h6" color="inherit" noWrap>
+                Trip Report
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Routes>
+            <Route path="/" element={<Album />} />
+            <Route path="/trips/new" element={<NewTrip />} />
+            <Route path="/trips/:id" element={<TripDetail />} />
+            <Route path="/trips/:id/edit" element={<EditTrip />} />
+            <Route path="*" element={<h1>404 Not Found</h1>} />
+          </Routes>
+        </Container>
+        <StickyFooter />
+      </Box>
     </div>
   );
 }

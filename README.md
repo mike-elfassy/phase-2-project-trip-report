@@ -24,7 +24,7 @@ This web app requires a local JSON server to emulate a database and REST API. Fo
 1. Download the codebase from this repository to a local computer
 2. Install JSON Server. Instructions can be found here: https://www.npmjs.com/package/json-server
 3. Start the JSON Server by navigating to the local directory where this repository is saved and running this command in the terminal: `$ json-server --watch db.json`
-4. Verify that JSON Server is using this port `http://localhost:3001/` by navigating to that directory in a web browser.
+4. Verify that JSON Server is using this port `http://localhost:3000/` by navigating to that directory in a web browser.
 5. Visit the Trip Report web app here: https://mike-elfassy.github.io/phase-2-project-trip-report/
 
 ## Support
@@ -34,7 +34,6 @@ Reach out to me via email for any questions, comments, or feedback.
 ## Roadmap
 
 1. To-do's
-    * Bug fix: Stricky footer
     * Add environment variables
 2. Nice-to-haves
     * Add support for dark mode via React Context
