@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
@@ -31,7 +31,6 @@ export default function NewTrip() {
 
   function handleSubmit(event) {
     event.preventDefault();
-      // persist todo on server
       fetch(API_URL + "/trips", {
           method: "POST",
           headers: {
@@ -40,8 +39,9 @@ export default function NewTrip() {
           body: JSON.stringify(formData)
       })
           .then(r => r.json())
-          .then(data => console.log(data))
-      // then use onAddTodo to add todo to state
+          .then(data => {
+            navigate(`/trips/${data.id}`)
+          })
   }
   
   function handleChange(event) {
@@ -53,6 +53,8 @@ export default function NewTrip() {
       [key]: event.target.value
     })
   }
+
+  const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>

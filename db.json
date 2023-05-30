@@ -26,20 +26,6 @@
       "description": "lorem ipsum ipsum",
       "date": "2022-12-24",
       "liked": true
-    },
-    {
-      "title": "New Title",
-      "description": "asdf",
-      "image": "asdf",
-      "liked": false,
-      "id": 4
-    },
-    {
-      "title": "asdf",
-      "description": "asdf",
-      "image": "https://mike-elfassy.s3.amazonaws.com/flatiron-school/phase-2/phase-2-project-trip-report/src/assets/trip-default.jpg",
-      "liked": false,
-      "id": 5
     }
   ],
   "authors": [

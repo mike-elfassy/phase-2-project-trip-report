@@ -10,6 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import StickyFooter from './StickyFooter';
+import TripDetail from './TripDetail';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Album />} />
           <Route path="/trips/new" element={<NewTrip />} />
+          <Route path="/trips/:id" element={<TripDetail />} />
           <Route path="/*" element={<h1>404 Not Found</h1>} />
       </Routes>
       <StickyFooter/>
