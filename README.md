@@ -8,7 +8,7 @@ This project is intended as a submission for the Flatiron School's Software Engi
 
 ## Features & Usage
 
-[![Video walkthrough of Trip Report app](https://cdn.loom.com/sessions/thumbnails/eb6c3e753e574f5d89034763e3c37400-with-play.gif)](https://www.loom.com/share/eb6c3e753e574f5d89034763e3c37400)
+[![Video walkthrough of Trip Report app](https://cdn.loom.com/sessions/thumbnails/eb6c3e753e574f5d89034763e3c37400-with-play.gif)](https://www.loom.com/share/aeb3f6f303c14931be6a22cfa5430104)
 
 Key features of the Trip Report web app are:
 1. A local database of 3 trip reports
