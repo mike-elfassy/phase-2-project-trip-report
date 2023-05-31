@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
+import { maxWidth } from '@mui/system';
 
 export default function App() {
   return (
@@ -27,7 +28,7 @@ export default function App() {
         }}
       >
         <CssBaseline />
-        <Container component="main" sx={{ mt: 0, mb: 3 }} style={{ padding: 0 }}>
+        <Container component="main" sx={{ mt: 0, mb: 3 }} style={{ padding: 0, maxWidth: "100%" }}>
           <AppBar position="relative">
             <Toolbar>
               <CameraIcon sx={{ mr: 2 }} />
